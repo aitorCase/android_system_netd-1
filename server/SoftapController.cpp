@@ -158,6 +158,9 @@ int SoftapController::startSoftap() {
     pid_t pid = 1;
     int ret;
 
+    // wifi_start_fstman() is not implemented on the X98 PRO. return here.
+    return ResponseCode::ServiceStartFailed;
+
     if (mPid) {
         ALOGE("SoftAP is already running");
         return ResponseCode::SoftapStatusResult;
@@ -231,7 +234,8 @@ int SoftapController::stopSoftap() {
 
     mPid = 0;
     ALOGD("SoftAP stopped successfully");
-    wifi_stop_fstman(true);
+    // wifi_stop_fstman() is not implemented on the X98 PRO. Commented.
+    // wifi_stop_fstman(true);
     usleep(AP_BSS_STOP_DELAY);
     return ResponseCode::SoftapStatusResult;
 }
