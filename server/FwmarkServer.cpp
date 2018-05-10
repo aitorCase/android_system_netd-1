@@ -22,7 +22,6 @@
 #include "NetworkController.h"
 #include "resolv_netid.h"
 
-#define LOG_TAG "FwMark"
 #include "cutils/log.h"
 
 #include <netinet/in.h>
